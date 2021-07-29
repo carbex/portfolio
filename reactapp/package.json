@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.8.3",
     "dotenv": "^10.0.0",
     "emailjs-com": "^3.2.0",
+    "env-cmd": "^10.1.0",
     "framer-motion": "^4.1.17",
     "google-map-react": "^2.1.10",
     "leaflet": "^1.7.1",
