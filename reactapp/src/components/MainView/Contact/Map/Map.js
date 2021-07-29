@@ -1,7 +1,6 @@
 import React from 'react'
 import * as S from './Map.styles'
 import Marker from './Marker/Marker';
-
 import GoogleMapReact from 'google-map-react';
 
 function Map() {
