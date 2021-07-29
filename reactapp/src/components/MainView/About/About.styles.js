@@ -35,10 +35,10 @@ export const Image = styled.img`
     border: 1px solid white;
 `
 export const Text = styled.p`
-    margin-bottom: 2rem;
+margin: 0 1rem 2rem 1rem;
 `
 export const Ul = styled.ul`
-    padding-left: 1rem;
+    padding: 0 2rem 0 2rem;
     margin-bottom: 2rem;
 `
 export const LinkText = styled.span`

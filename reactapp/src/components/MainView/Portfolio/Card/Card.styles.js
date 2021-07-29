@@ -9,6 +9,7 @@ scroll-margin: 1.2rem;
   margin-bottom: 20px;
 `
 export const Image = styled.img`
+  margin-bottom: 10px;
   width: 100%;
   height: 100%;
   border-radius: 4px;

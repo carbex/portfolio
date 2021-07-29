@@ -5,8 +5,7 @@ const mainColor = 'rgba(131, 234, 241, 1)';
 
 export const Container = styled.div`
   border-top: 1px solid ${mainColor};
-  padding: 10px;
-  margin-bottom: 40px;
+  padding: 20px 10px 10px 10px;
   display: ${p => p.visible ? 'display: block' : 'none'};
 
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -55,4 +54,10 @@ export const Container = styled.div`
   }
 `
 export const SubTitle = styled.h3``
-export const Paragraph = styled.p``
+export const Paragraph = styled.p`
+  margin: 0 1rem 2rem 1rem;
+`
+export const Ul = styled.ul`
+  padding: 0 2rem 0 2rem;
+  margin-bottom: 2rem;
+`

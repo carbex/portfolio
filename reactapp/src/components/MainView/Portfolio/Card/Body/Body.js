@@ -22,9 +22,9 @@ function Body(props) {
         {description}
       </S.Paragraph>
       <S.SubTitle>Fiche technique</S.SubTitle>
-      <ul>
+      <S.Ul>
         {resourcesList}
-      </ul>
+      </S.Ul>
       <S.SubTitle>Ressources</S.SubTitle>
       <S.Paragraph style={{ display: 'flex', flexDirection: 'column' }}>
         {siteUrl && <Link to={{ pathname: siteUrl }} target="_blank">Lien du site</Link>}
