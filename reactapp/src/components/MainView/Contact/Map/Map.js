@@ -6,9 +6,11 @@ import GoogleMapReact from 'google-map-react';
 
 function Map() {
 
+    const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+
     const infos = {
         map: {
-            key: 'AIzaSyBiHV0X2yj7o88WrUAGOVddBkscmdk62YI',
+            key: `${googleApiKey}`,
             center: {
                 lat: 48.830168,
                 lng: 2.233392
