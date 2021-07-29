@@ -7,8 +7,8 @@ import * as S from './Home.styles'
 function Home() {
     return (
         <S.Container>
-            <S.Title>Bonjour, je m'appelle <S.Name>Alex</S.Name></S.Title>
-            <S.SubTitle>Je suis un Développeur Web Javascript Full-Stack</S.SubTitle>
+            <S.Title>Bonjour, moi c'est <S.Name>Alex</S.Name></S.Title>
+            <S.SubTitle>Je suis Développeur Web Javascript Full-Stack</S.SubTitle>
             <p>
                 N'hésitez pas à consulter mes projets !
             </p>

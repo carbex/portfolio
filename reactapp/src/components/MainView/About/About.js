@@ -29,8 +29,7 @@ function About() {
                                 <li>Parce que c'est un <b>challenge</b> à chaque nouveau projet.</li>
                                 <li>Parce que je transforme des problèmes en solutions <b>simples</b>, <b>logiques</b> et <b>fonctionnelles</b>.</li>
                                 <li>Parce que je n'arrête jamais d'<b>apprendre</b>.</li>
-                                <li>Parce que quand je code, je ne vois <b>pas</b> le temps passer !</li>
-                                <li>Parce que j'aime ça, tout simplement...</li>
+                                <li>Parce que j'aime tellement ça que je ne vois <b>pas</b> le temps passer.</li>
                             </S.Ul>
                             <S.SubTitle>Mes compétences ?</S.SubTitle>
                             <S.Text>

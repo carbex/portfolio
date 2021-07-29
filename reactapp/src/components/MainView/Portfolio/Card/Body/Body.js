@@ -13,7 +13,7 @@ function Body(props) {
     visible = false
   } = props
 
-  let resourcesList = resources.map((resource, index) => <li key={index}>{resource}</li> )
+  let resourcesList = resources.map((resource, index) => <li key={resource}>{resource}</li>)
 
   return (
     <S.Container visible={visible}>
@@ -25,11 +25,10 @@ function Body(props) {
       <ul>
         {resourcesList}
       </ul>
-      <S.SubTitle>Ressources</S.SubTitle>      
-      <S.Paragraph style={{display: 'flex', flexDirection: 'column'}}>
+      <S.SubTitle>Ressources</S.SubTitle>
+      <S.Paragraph style={{ display: 'flex', flexDirection: 'column' }}>
         {siteUrl && <Link to={{ pathname: siteUrl }} target="_blank">Lien du site</Link>}
         {githubUrl && <Link to={{ pathname: githubUrl }} target="_blank">Lien Github</Link>}
-        
       </S.Paragraph>
     </S.Container>
   )

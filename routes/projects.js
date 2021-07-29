@@ -10,10 +10,10 @@ router.get('/', function(req, res, next) {
 // Read Projects
 router.get('/get', async (req, res, next) => {
     var projects = await projectModel.find()
-    if (!projects) {
-      res.json({ result: false, error: "Il manque des données" });
-    } else {
+    if (projects) {
       res.json({ result: true, projects });
+    } else {
+      res.json({ result: false, error: "Nous rencontrons des difficultées à joindre la base de donées. Veuillez recommencer ultérieurement." });
     }
   });
 
