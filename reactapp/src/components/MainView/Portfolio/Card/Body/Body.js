@@ -8,8 +8,8 @@ function Body(props) {
   const {
     description = '',
     resources = [],
-    githubLink = '',
-    siteLink = '',
+    githubUrl = '',
+    siteUrl = '',
     visible = false
   } = props
 
@@ -27,8 +27,8 @@ function Body(props) {
       </ul>
       <S.SubTitle>Ressources</S.SubTitle>      
       <S.Paragraph style={{display: 'flex', flexDirection: 'column'}}>
-        {siteLink && <Link to={{ pathname: siteLink }} target="_blank">Lien du site</Link>}
-        {githubLink && <Link to={{ pathname: githubLink }} target="_blank">Lien Github</Link>}
+        {siteUrl && <Link to={{ pathname: siteUrl }} target="_blank">Lien du site</Link>}
+        {githubUrl && <Link to={{ pathname: githubUrl }} target="_blank">Lien Github</Link>}
         
       </S.Paragraph>
     </S.Container>

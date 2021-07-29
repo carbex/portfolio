@@ -2,7 +2,20 @@ import React, { useRef } from 'react'
 import Body from './Body/Body'
 import * as S from './Card.styles'
 
-function Card({ index, visible, githubLink, siteLink, description, resources, title, onProjectClick, image }) {
+function Card(props) {
+
+  // Default props
+  const {
+    index,
+    onProjectClick,
+    visible = false,
+    imageUrl = '',
+    title = '',
+    description = '',
+    resources = [],
+    githubUrl = '',
+    siteUrl = ''
+  } = props
 
   const myRef = useRef(null)
   const executeScroll = () => myRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" })
@@ -21,13 +34,13 @@ function Card({ index, visible, githubLink, siteLink, description, resources, ti
     <>
       <S.Container onClick={handleClick} ref={myRef}>
         <S.ImageContainer>
-          <S.Image src={image ? image : "http://via.placeholder.com/350x197"} alt={title} />
+          <S.Image src={imageUrl ? imageUrl : "http://via.placeholder.com/350x197"} alt={title} />
         </S.ImageContainer>
         <S.TitleContainer visible={visible}>
           <S.Title visible={visible}>{title}</S.Title>
         </S.TitleContainer>
       </S.Container>
-      <Body description={description} resources={resources} githubLink={githubLink} siteLink={siteLink} visible={visible} />
+      <Body description={description} resources={resources} githubUrl={githubUrl} siteUrl={siteUrl} visible={visible} />
     </>
   )
 }
