@@ -5,7 +5,7 @@ const mainColor = 'rgba(131, 234, 241, 1)'
 
 // Styled-components
 export const Container = styled.div`
-    max-width: 1024px;
+    max-width: 1200px;
     padding: 0 10px;
     margin: 0 auto;
 `
@@ -35,11 +35,11 @@ export const Image = styled.img`
     border: 1px solid white;
 `
 export const Text = styled.p`
-margin: 0 1rem 2rem 1rem;
+    margin: 0 1rem 2rem 1rem;
 `
 export const Ul = styled.ul`
     padding: 0 2rem 0 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2    rem;
 `
 export const LinkText = styled.span`
     font-weight: 600;

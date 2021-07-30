@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function About() {
     return (
         <>
-            <div className='container' style={{ maxWidth: '1024px' }}>
+            <div className='container' style={{ maxWidth: '1200px' }}>
                 <div className="row">
                     <S.PageTitle>PROFIL</S.PageTitle>
                     <div className='col col-12 col-md-4 mb-4'>

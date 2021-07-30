@@ -6,7 +6,7 @@ const mainColor = 'rgba(131, 234, 241, 1)'
 
 // Styled-components
 export const Container = styled.div`
-    max-width: 1024px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 3rem 0;
     height: 100%;
