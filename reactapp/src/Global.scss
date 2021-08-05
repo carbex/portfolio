@@ -1,6 +1,6 @@
-$font-pageTitle: "Brandon Text","-apple-system","BlinkMacSystemFont","Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;
-$font-title: "Brandon Text","-apple-system","BlinkMacSystemFont","Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;
-$font-subTitle: "Brandon Text","-apple-system","BlinkMacSystemFont","Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;
+$font-pageTitle: "Inter",sans-serif;
+$font-title: "Inter",sans-serif;
+$font-subTitle: "Inter",sans-serif;
 $font-p: Verdana, "Geneva", sans-serif;
 $font-li: "Brandon Text","-apple-system","BlinkMacSystemFont","Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;
 
@@ -33,7 +33,7 @@ h1 {
   font-family: $font-pageTitle;
   font-size: 3.052rem;
   // letter-spacing: -0.15rem;
-  line-height: 1;
+  line-height: 1.2;
   margin: 3rem 0;
 }
 
@@ -49,10 +49,6 @@ h3 {
   font-size: 1.953rem;
   // letter-spacing: -0.09rem;
   line-height: 1.2;
-}
-
-h3:first {
-  margin-top: 0;
 }
 
 h4 {
@@ -76,11 +72,9 @@ h6 {
 p {
   font-family: $font-p;
   margin-bottom: 1.563rem;
+  line-height: 1.6;
 }
 
-p > *:last-child {
-  margin-bottom: 0;
-}
 li {
   font-family: $font-li;
 }

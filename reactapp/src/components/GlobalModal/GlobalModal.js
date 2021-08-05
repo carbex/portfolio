@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState, useContext } from 'react'
 
 const ModalContext = React.createContext()
 
@@ -50,7 +50,7 @@ const ModalProvider = props => {
 }
 
 const useModal = () => {
-    const context = React.useContext(ModalContext)
+    const context = useContext(ModalContext)
     if (context === undefined) {
         throw new Error('useModal must be used within a UserProvider')
     }

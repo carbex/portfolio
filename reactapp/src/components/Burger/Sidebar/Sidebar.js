@@ -17,7 +17,7 @@ const sidebar = {
     },
     fonts: {
         header: 'ZCOOL Kuaile',
-        menu: '"Brandon Text","-apple-system","BlinkMacSystemFont","Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif'
+        menu: '"Inter",sans-serif'
     },
     menuItems: [
         { id: 0, name: 'Accueil', to: '/', icon: <AiIcons.AiFillHome />, subMenuItems: [] },
