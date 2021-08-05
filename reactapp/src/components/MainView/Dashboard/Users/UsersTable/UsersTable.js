@@ -95,7 +95,7 @@ function UsersTable(props) {
                                         Rôle
                                     </S.Text>
                                     <S.Text className="col col-8">
-                                        {user.role === 1 ? 'Administrateur' : 'Utilisateur'}
+                                        {user.role === 1 ? 'Administrateur' : 'Auteur'}
                                     </S.Text>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ function UsersTable(props) {
                         </S.Email>
                     </S.ThDisplayToggle>
                     <S.ThDisplayToggle>
-                        <S.Text>{user.role === 1 ? 'Administrateur' : 'Utilisateur'}</S.Text>
+                        <S.Text>{user.role === 1 ? 'Administrateur' : 'Auteur'}</S.Text>
                     </S.ThDisplayToggle>
                 </tr>
             )

@@ -25,7 +25,7 @@ function ProjectFormUpdate(props) {
         setImageUrl(project.imageUrl)
         setTitle(project.title)
         setDescription(project.description)
-        setResources(project.resources)
+        setResources(project.resources.join('|'))
         setSiteUrl(project.siteUrl)
         setGithubUrl(project.githubUrl)
     },

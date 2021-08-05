@@ -48,7 +48,7 @@ function UserFormUpdate(props) {
                     <label htmlFor='role'>Rôle</label>
                     <S.Select value={role} onChange={e => setRole(e.target.value)} aria-label="Default select example">
                         <option value={1}>Administrateur</option>
-                        <option value={2}>Utilisateur</option>
+                        <option value={2}>Auteur</option>
                     </S.Select>
                 </>
             }
