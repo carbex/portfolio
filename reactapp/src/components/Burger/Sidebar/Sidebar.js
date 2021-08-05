@@ -17,12 +17,12 @@ const sidebar = {
     },
     fonts: {
         header: 'ZCOOL Kuaile',
-        menu: 'Poppins'
+        menu: '"Brandon Text","-apple-system","BlinkMacSystemFont","Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif'
     },
     menuItems: [
         { id: 0, name: 'Accueil', to: '/', icon: <AiIcons.AiFillHome />, subMenuItems: [] },
         { id: 1, name: 'Profil', to: '/about', icon: <AiIcons.AiFillProfile />, subMenuItems: [] },
-        { id: 2, name: 'Mes projets', to: '/portfolio', icon: <AiIcons.AiFillProject />, subMenuItems: [] },
+        { id: 2, name: 'Portfolio', to: '/portfolio', icon: <AiIcons.AiFillProject />, subMenuItems: [] },
         { id: 3, name: 'Contact', to: '/contact', icon: <FaIcons.FaEnvelopeOpenText />, subMenuItems: [] },
         { id: 4, name: 'Tableau de bord', to: '/dashboard', icon: <AiIcons.AiFillDashboard />, subMenuItems: [] },
         // { id: 5, name: 'Destinations', to: '/destinations', icon: <FaIcons.FaCartPlus />, subMenuItems: [
@@ -32,7 +32,7 @@ const sidebar = {
         //   {name: 'Australia', to: '/australia'},
         //   {name: 'Kenya', to: '/kenya'}
         // ]},
-        { id: 6, name: 'Connexion', to: '/login', icon: <AiIcons.AiOutlinePoweroff />, subMenuItems: [] }
+        { id: 6, name: 'Se connecter', to: '/login', icon: <AiIcons.AiOutlinePoweroff />, subMenuItems: [] }
     ]
 }
 
@@ -67,7 +67,7 @@ function Sidebar(props) {
         if(token) {
             setMenuItems([...sidebar.menuItems.map(item => {
                 if(item.to === "/login") {
-                    return {...item, name: 'Déconnexion', to: '#' }
+                    return {...item, name: 'Se déconnecter', to: '#' }
                 } else {
                     return {...item}
                 }

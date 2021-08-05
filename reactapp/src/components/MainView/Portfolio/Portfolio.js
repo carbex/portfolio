@@ -53,7 +53,7 @@ function Portfolio() {
 
   return (
     <S.Container>
-      <S.PageTitle>MES PROJETS</S.PageTitle>
+      <S.PageTitle>PORTFOLIO</S.PageTitle>
       {loading && <S.SubTitle>Chargement...</S.SubTitle>}
       <S.Portfolio>
         {listProjects}

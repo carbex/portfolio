@@ -56,7 +56,6 @@ export const MenuItem = styled.div`
     ${p => p.selected && 'font-weight: bold; letter-spacing: 2px;'}
     transition: .2s;
     padding: 6px 20px;
-    font-weight: 600;
     color: ${p => p.selected ? 'rgba(255, 255, 255)' : 'rgba(255, 255, 255)'};
     font-family: ${p => p.font};
     white-space: nowrap;
@@ -64,7 +63,7 @@ export const MenuItem = styled.div`
     transition: .2s ease-in all;
 
     &:hover {
-        color: ${p => p.token ? 'rgba(255,0,0,0.6)' : colors.mainColor};
+        color: ${p => p.token ? 'rgba(255,45,0,1)' : colors.mainColor};
         letter-spacing: 2px;
         transition: .2s ease-in all;
     };
@@ -87,20 +86,8 @@ export const MenuItem = styled.div`
     `}    
 `
 export const Icon = styled.span`
-    ${p => p.isSidebarLarge && `padding-right: 20px; transition: .2s ease-in padding-right`}; 
-    color: white;     
-    ${p => !p.isSidebarLarge && !p.token && `
-        &:hover{
-            color: rgba(131, 234, 241, 1);
-            transition: .2s ease-in all;
-        } 
-    `}; 
-    ${p => !p.isSidebarLarge && p.token && `
-        &:hover{
-            color: rgba(255,0,0,1);
-            transition: .2s ease-in all;
-        } 
-    `}; 
+    ${p => p.isSidebarLarge && `padding-right: 20px; transition: .2s ease-in padding-right; color: white`}; 
+    ${p => !p.isSidebarLarge && p.token && `transition: .2s ease-in padding-right`};   
 `
 export const Text = styled.p`
     display: ${p => p.isSidebarLarge ? 'inline' : 'none'}; 

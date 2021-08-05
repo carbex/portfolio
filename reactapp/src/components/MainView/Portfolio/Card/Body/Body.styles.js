@@ -55,11 +55,19 @@ export const Container = styled.div`
     grid-column: span 1;
   }
 `
-export const SubTitle = styled.h3``
+export const SubTitle = styled.h3`
+margin: 10px 0 10px;
+`
 export const Paragraph = styled.p`
   margin: 0 1rem 2rem 1rem;
 `
 export const Ul = styled.ul`
   padding: 0 2rem 0 2rem;
   margin-bottom: 2rem;
+`
+export const Link = styled.div`
+  color: lightgrey;
+  &:hover{
+    color: ${mainColor}
+  }
 `

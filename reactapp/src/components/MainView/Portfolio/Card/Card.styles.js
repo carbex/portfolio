@@ -24,7 +24,6 @@ export const Image = styled.img`
   }
 `
 export const Title = styled.h2`
-  font-weight: 550;
   padding: 0;
   color: ${p => p.visible ? 'rgba(131, 234, 241, 1)' : '#fff'};
   margin: 10px 0 10px;

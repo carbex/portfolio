@@ -27,8 +27,8 @@ function Body(props) {
       </S.Ul>
       <S.SubTitle>Ressources</S.SubTitle>
       <S.Paragraph style={{ display: 'flex', flexDirection: 'column' }}>
-        {siteUrl && <Link to={{ pathname: siteUrl }} target="_blank">Lien du site</Link>}
-        {githubUrl && <Link to={{ pathname: githubUrl }} target="_blank">Lien Github</Link>}
+        {siteUrl && <Link to={{ pathname: siteUrl }} target="_blank" style={{textDecoration: 'none'}}><S.Link>Lien du site</S.Link></Link>}
+        {githubUrl && <Link to={{ pathname: githubUrl }} target="_blank" style={{textDecoration: 'none'}}><S.Link>Lien Github</S.Link></Link>}
       </S.Paragraph>
     </S.Container>
   )
