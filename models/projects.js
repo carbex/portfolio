@@ -7,7 +7,10 @@ const projectSchema = mongoose.Schema({
     description: String,
     resources: Array,
     githubUrl: String,
-    siteUrl: String
+    siteUrl: String,
+    creationDate: Date,
+    updateDate: Date,
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
 })
 
 const projectModel = mongoose.model('projects', projectSchema)

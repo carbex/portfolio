@@ -5,7 +5,7 @@ const mainColor = 'rgba(131, 234, 241, 1)'
 
 // Styled-components
 export const Container = styled.div`
-    max-width: 1200px;
+    max-width: 1024px;
     padding: 0 10px;
     margin: 0 auto;
 `
@@ -27,7 +27,7 @@ export const Image = styled.img`
     width: 100%;
     min-width: 60px;
     height: 100%;
-    background-image: url('images/alex.jpg');
+    background-image: url(${p => p.profilImage});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

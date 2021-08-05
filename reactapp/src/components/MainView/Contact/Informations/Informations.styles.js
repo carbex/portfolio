@@ -25,7 +25,7 @@ export const IconContainer = styled.div`
 `
 export const Copied = styled.div`
     position: absolute;
-    bottom: 5px;
+    bottom: 10px;
     left: 20px;
     color: lightgreen;
 `

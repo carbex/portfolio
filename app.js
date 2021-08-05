@@ -1,3 +1,5 @@
+
+var fileUpload = require('express-fileupload');
 require('dotenv').config()
 require('./models/dbConnect')
 
@@ -12,6 +14,7 @@ var projectsRouter = require('./routes/projects');
 
 var app = express();
 
+app.use(fileUpload());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

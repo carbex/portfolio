@@ -1,12 +1,13 @@
 import styled from '@emotion/styled'
 
-// Colors kir
+// Colors kit
 // const mainColor = 'rgba(131, 234, 241, 1)';
+
 // Styled-components
 export const Container = styled.div`
-scroll-margin: 1.2rem;
+  scroll-margin: 1.2rem;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 4rem;
 `
 export const Image = styled.img`
   margin-bottom: 10px;
@@ -28,6 +29,20 @@ export const Title = styled.h2`
   color: ${p => p.visible ? 'rgba(131, 234, 241, 1)' : '#fff'};
   margin: 10px 0 10px;
 `
+export const Date = styled.p`
+  border: 1px solid white;
+  border-radius: 4px 4px 0 0;
+  background-color: transparent;
+  position: absolute;
+  top: -28px;
+  right: 0px;
+  font-size: 0.6rem;
+  font-weight: 500;
+  padding: 2px 2px 0 2px;
+  color: ${p => p.visible ? 'rgba(131, 234, 241, 1)' : '#FFF'};
+  margin: 10px 0 10px;
+`
+
 export const TitleContainer = styled.div`
   display: inline-block;
   vertical-align: middle;
@@ -35,7 +50,6 @@ export const TitleContainer = styled.div`
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   position: relative;
-  
 
   &:before {
     pointer-events: none;
@@ -44,7 +58,7 @@ export const TitleContainer = styled.div`
     content: '';
     border-style: solid;
     left: calc(50% - 10px);
-    bottom: -20px ;
+    bottom: -64px ;
     border-width: 10px 10px 0 10px;
     transform:  rotate(180deg);
     border-color: ${p => p.visible ? 'rgba(131, 234, 241, 1)' : 'transparent'} transparent transparent transparent;
@@ -91,4 +105,6 @@ export const SubTitle = styled.h3`
 `
 export const Description = styled.div``
 
-export const ImageContainer = styled.div``
+export const ImageContainer = styled.div`
+  position: relative;
+`

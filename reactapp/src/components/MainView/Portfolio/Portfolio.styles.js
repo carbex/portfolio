@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 
 export const Container = styled.div`
-    max-width: 1200px;
+    max-width: 1024px;
     padding: 0 10px;
     margin: 0 auto;
 `
@@ -11,7 +11,7 @@ export const Title = styled.h2``
 export const SubTitle = styled.h3``
 
 export const Portfolio = styled.div`
-position: relative;
+    position: relative;
     margin-bottom: 3rem;
     display: grid;
     grid-template-columns: 1fr;

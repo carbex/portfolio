@@ -9,7 +9,6 @@ const colors = {
 
 // Styled-components
 export const SidebarContainer = styled.div`
-
     ${p => !p.isSidebarOpen && 'transform: translate(-100%); z-index: 20;'}
     width: ${p => p.isSidebarLarge ? '60%' : '5%'};
     max-width: 280px;
@@ -65,11 +64,11 @@ export const MenuItem = styled.div`
     transition: .2s ease-in all;
 
     &:hover {
-        color: ${colors.mainColor};
+        color: ${p => p.token ? 'rgba(255,0,0,0.6)' : colors.mainColor};
         letter-spacing: 2px;
         transition: .2s ease-in all;
     };
-
+    
     &:after {
         content: '';
         border: 1px solid ${p => p.selected ? colors.mainColor : 'rgba(255, 255, 255, 1)'};
@@ -85,23 +84,28 @@ export const MenuItem = styled.div`
                 transition: .2s ease-in all;
             }
         }
-    `}
-`
-export const Text = styled.p`
-    display: ${p => p.isSidebarLarge ? 'inline' : 'none'};   
+    `}    
 `
 export const Icon = styled.span`
     ${p => p.isSidebarLarge && `padding-right: 20px; transition: .2s ease-in padding-right`}; 
-    color: white;
-
-    ${p => !p.isSidebarLarge &&`
-        &:hover {
-            color: ${colors.mainColor};
+    color: white;     
+    ${p => !p.isSidebarLarge && !p.token && `
+        &:hover{
+            color: rgba(131, 234, 241, 1);
             transition: .2s ease-in all;
-        };
-    `}
-    
+        } 
+    `}; 
+    ${p => !p.isSidebarLarge && p.token && `
+        &:hover{
+            color: rgba(255,0,0,1);
+            transition: .2s ease-in all;
+        } 
+    `}; 
 `
+export const Text = styled.p`
+    display: ${p => p.isSidebarLarge ? 'inline' : 'none'}; 
+`
+
 
 // Sub menu items -------------------------------------
 

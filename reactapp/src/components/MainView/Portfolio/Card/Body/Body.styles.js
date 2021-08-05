@@ -1,11 +1,13 @@
 import styled from '@emotion/styled'
 
-// Colors kir
+// Colors kit
 const mainColor = 'rgba(131, 234, 241, 1)';
 
 export const Container = styled.div`
   border-top: 1px solid ${mainColor};
+  margin-bottom: 40px;
   padding: 20px 10px 10px 10px;
+  overflow: hidden;
   display: ${p => p.visible ? 'display: block' : 'none'};
 
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -44,13 +46,13 @@ export const Container = styled.div`
         }
 
   @media screen and (min-width: 992px) {
-      grid-column: span 3;
+    grid-column: span 3;
   }
   @media screen and (min-width: 576px) and (max-width: 992px) {
-      grid-column: span 2;
+    grid-column: span 2;
   }
   @media screen and (max-width: 576px) {
-      grid-column: span 1;
+    grid-column: span 1;
   }
 `
 export const SubTitle = styled.h3``

@@ -10,7 +10,7 @@ export const PageTitle = styled.h1`
 `
 
 export const Container = styled.div`
-    max-width: 1200px;
+    max-width: 1024px;
     padding: 0 10px;
     margin: 0 auto;
 `
@@ -24,7 +24,7 @@ export const Row = styled.div`
         flex-flow: row wrap;
     }
 `
-export const ColMap = styled.div`
+export const Map = styled.div`
     box-sizing: border-box;
     padding-right: 0;
     flex: 1;
@@ -34,7 +34,7 @@ export const ColMap = styled.div`
         padding-right: 20px;
     }
 `
-export const ColInfo = styled.div`
+export const Info = styled.div`
     box-sizing: border-box;
     padding-right: 0;
     flex: 1;
@@ -44,7 +44,8 @@ export const ColInfo = styled.div`
         padding-right: 20px;
     }
 `
-export const ColForm = styled.div`
+export const Form = styled.div`
+    box-sizing: border-box;
     height: 100%;
     width: 100%;
 `

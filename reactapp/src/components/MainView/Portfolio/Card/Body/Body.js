@@ -13,7 +13,7 @@ function Body(props) {
     visible = false
   } = props
 
-  let resourcesList = resources.map((resource, index) => <li key={resource}>{resource}</li>)
+  let resourcesList = resources.map((resource) => <li key={resource}>{resource}</li>)
 
   return (
     <S.Container visible={visible}>

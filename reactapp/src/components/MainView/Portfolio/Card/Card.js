@@ -17,8 +17,9 @@ function Card(props) {
     siteUrl = ''
   } = props
 
-  const myRef = useRef(null)
-  const executeScroll = () => myRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" })
+  // Scroll to the card element
+  const cardRef = useRef(null)
+  const executeScroll = () => cardRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" })
 
   const handleClick = () => {
     const myProm = new Promise(function (resolve, reject) {
@@ -32,15 +33,17 @@ function Card(props) {
 
   return (
     <>
-      <S.Container onClick={handleClick} ref={myRef}>
+      <S.Container onClick={handleClick} ref={cardRef}>
         <S.ImageContainer>
-          <S.Image src={imageUrl ? imageUrl : "http://via.placeholder.com/700x525"} alt={title} />
+          {/* <S.Date visible={visible}>{convertDate(creationDate)}</S.Date> */}
+          <S.Image src={imageUrl ? imageUrl : "http://via.placeholder.com/700x525"} alt={title} />         
         </S.ImageContainer>
         <S.TitleContainer visible={visible}>
           <S.Title visible={visible}>{title}</S.Title>
+          
         </S.TitleContainer>
       </S.Container>
-      <Body visible={visible} description={description} resources={resources} githubUrl={githubUrl} siteUrl={siteUrl} />
+      <Body visible={visible} description={description} resources={resources} githubUrl={githubUrl} siteUrl={siteUrl} />     
     </>
   )
 }

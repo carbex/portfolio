@@ -10,16 +10,20 @@ export const IconContainer = styled.div`
     flex-direction: column;
     position: fixed;
     top: 40%;
-    right: .6rem;
+    right: .8rem;
     z-index: 10;
 `
-export const Icon = styled.span`
+export const Icon = styled.div`
+
+position: relative;
+
     font-size: 2rem;
     color: white;
-
+    
+   transition: all 0.2s ease-out;
     &:hover {
         color: ${mainColor};
-        transition: .1s ease-in-out all;
-        transform: scale(1.5);
+       transform: translate(-4px,0);
+       
     };
 `

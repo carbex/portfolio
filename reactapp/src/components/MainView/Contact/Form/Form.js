@@ -10,7 +10,7 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const [isEmailAllowed, setisEmailAllowed] = useState(true)
+  const [isEmailAllowed, setIsEmailAllowed] = useState(true)
   const [isNameAllowed, setIsNameAllowed] = useState(true)
   const [popupMessage, setPopupMessage] = useState({ message: '...', color: '#fff', opacity: 0 })
   const [isFail, setIsFail] = useState(false)
@@ -43,8 +43,8 @@ const Form = () => {
 
   const handleSubmit = () => {
     if (!isEmail()) {
-      setisEmailAllowed(false)
-      setTimeout(() => setisEmailAllowed(true), 5000)
+      setIsEmailAllowed(false)
+      setTimeout(() => setIsEmailAllowed(true), 5000)
     }
     if(!isName()) {
       setIsNameAllowed(false)

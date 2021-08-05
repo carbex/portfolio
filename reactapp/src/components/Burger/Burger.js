@@ -3,21 +3,7 @@ import Sidebar from './Sidebar/Sidebar'
 import * as S from './Burger.styles'
 import * as IoIcons from "react-icons/io"
 
-function Burger(props) {
-
-    // Default props
-    const {
-        backgroundImage = '',
-        sidebarHeader = {
-            fullName: '',
-            shortName: ''
-        },
-        menuItems = [],
-        fonts = {
-            header: '',
-            menu: ''
-        }
-    } = props
+function Burger() {
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const [isSidebarLarge, setIsSidebarLarge] = useState(true)
@@ -68,10 +54,6 @@ function Burger(props) {
                 </S.TogglerIcon>
             </S.TogglerContainer>
             <Sidebar
-                backgroundImage={backgroundImage}
-                sidebarHeader={sidebarHeader}
-                menuItems={menuItems}
-                fonts={fonts}
                 isSidebarOpen={isSidebarOpen}
                 isSidebarLarge={isSidebarLarge}
             />

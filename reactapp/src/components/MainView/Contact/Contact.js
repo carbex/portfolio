@@ -32,17 +32,17 @@ function Contacts() {
                     <S.PageTitle>CONTACT</S.PageTitle>
                 </S.Row>
                 <S.Row>
-                    <S.ColMap>
+                    <S.Map>
                         <Map />
-                    </S.ColMap>
-                    <S.ColInfo>
+                    </S.Map>
+                    <S.Info>
                         <Informations />
-                    </S.ColInfo>
+                    </S.Info>
                 </S.Row>
                 <S.Row>
-                    <S.ColForm>
+                    <S.Form>
                         <Form />
-                    </S.ColForm>
+                    </S.Form>
                 </S.Row>
             </S.Container>
         </>
