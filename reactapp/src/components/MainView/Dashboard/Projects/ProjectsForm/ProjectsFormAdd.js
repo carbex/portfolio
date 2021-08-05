@@ -41,7 +41,7 @@ function ProjectFormAdd(props) {
             <label htmlFor='description'>Description*</label>
             <S.Textarea type='textarea' name='description' placeholder='Description' onChange={e => setDescription(e.target.value)} />
             <label htmlFor='resources'>Fiche technique*</label>
-            <S.Input type="text" name='resources' placeholder='HTML/CSS/REACT/MONGOOSE' onChange={e => setResources(e.target.value)} />
+            <S.Input type="text" name='resources' placeholder='HTML|CSS|REACT|MONGOOSE' onChange={e => setResources(e.target.value)} />
             <label htmlFor='siteUrl'>Lien du site</label>
             <S.Input type="text" name='siteUrl' placeholder='Lien du site' onChange={e => setSiteUrl(e.target.value)} />
             <label htmlFor='githubUrl'>Lien github</label>

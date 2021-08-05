@@ -59,7 +59,7 @@ function ProjectFormUpdate(props) {
             <label>Description*</label>
             <S.Textarea type='textarea' defaultValue={project.description} placeholder='Description' onChange={e => setDescription(e.target.value)} />
             <label>Fiche technique*</label>
-            <S.Input type="text" defaultValue={project.resources.join('/')} placeholder='HTML/CSS/REACT/MONGOOSE' onChange={e => setResources(e.target.value)} />
+            <S.Input type="text" defaultValue={project.resources.join('|')} placeholder='HTML|CSS|REACT|MONGOOSE' onChange={e => setResources(e.target.value)} />
             <label>Liens du site</label>
             <S.Input type="text" defaultValue={project.siteUrl} placeholder='Lien du site' onChange={e => setSiteUrl(e.target.value)} />
             <label>Liens github</label>

@@ -12,7 +12,7 @@ function Burger() {
     // Update of sidebar states
 
     useEffect(() => {
-        const updateWindowWidth = () => {            
+        const updateWindowWidth = () => {        
             const secondBreakPoint = 576
             if (window.innerWidth < secondBreakPoint) setIsSidebarOpen(false)
             else if (window.innerWidth > secondBreakPoint && userChoice.isSidebarOpen) setIsSidebarOpen(true)
