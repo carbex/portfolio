@@ -39,8 +39,7 @@ function Card(props) {
           <S.Image src={imageUrl ? imageUrl : "http://via.placeholder.com/700x525"} alt={title} />         
         </S.ImageContainer>
         <S.TitleContainer visible={visible}>
-          <S.Title visible={visible}>{title}</S.Title>
-          
+          <S.Title visible={visible}>{title}</S.Title>         
         </S.TitleContainer>
       </S.Container>
       <Body visible={visible} description={description} resources={resources} githubUrl={githubUrl} siteUrl={siteUrl} />     

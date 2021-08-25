@@ -93,7 +93,7 @@ function ProjectsTable(props) {
                                     {project.updateDate &&
                                         <>
                                             <S.Text className="col col-4">
-                                                Mis à jour le
+                                                MAJ le
                                             </S.Text>
                                             <S.Text className="col col-8">
                                                 {project.updateDate && convertDate(project.updateDate)}

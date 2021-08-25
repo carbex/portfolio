@@ -28,7 +28,8 @@ function Informations() {
         <S.Container>
             <S.InfoContainer>
                 <S.IconContainer>
-                    <S.ClicableIcon onClick={() => copyToClipboard(info.phone, 'phone')}>
+                    {/* <S.ClicableIcon onClick={() => copyToClipboard(info.phone, 'phone')}> */}
+                    <S.ClicableIcon onClick={() => window.location.href = `tel:${info.phone}`}>
                         <AiIcons.AiOutlinePhone style={{ padding: '0 0 18px 0' }} />
                     </S.ClicableIcon>
                 </S.IconContainer>

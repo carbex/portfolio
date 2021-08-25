@@ -25,6 +25,7 @@ export const Row = styled.div`
     }
 `
 export const Map = styled.div`
+    margin-bottom: 1rem;
     box-sizing: border-box;
     padding-right: 0;
     flex: 1;
@@ -35,6 +36,7 @@ export const Map = styled.div`
     }
 `
 export const Info = styled.div`
+    margin-bottom: 1rem;
     box-sizing: border-box;
     padding-right: 0;
     flex: 1;
