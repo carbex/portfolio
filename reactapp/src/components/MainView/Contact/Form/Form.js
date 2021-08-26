@@ -2,14 +2,13 @@ import React, { useState, useRef } from "react";
 import emailjs from 'emailjs-com';
 import * as S from './Form.styles';
 import ReCAPTCHA from "react-google-recaptcha";
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 const Form = () => {
 
-  const recaptchaRef = useRef();
-
-  const siteKey = process.env.REACT_APP_NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-  const secretKey = process.env.REACT_APP_RECAPTCHA_SECRET_KEY;
+  // const recaptchaRef = useRef();
+  // const siteKey = process.env.REACT_APP_NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+  // const secretKey = process.env.REACT_APP_RECAPTCHA_SECRET_KEY;
 
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
@@ -21,6 +20,7 @@ const Form = () => {
   const [isNameAllowed, setIsNameAllowed] = useState(true)
   const [popupMessage, setPopupMessage] = useState({ message: '...', color: '#fff', opacity: 0 })
   const [isFail, setIsFail] = useState(false)
+  const [recaptchaToken, setRecaptchaToken] = useState("")
 
 
 
@@ -50,42 +50,57 @@ const Form = () => {
 
   const handleSubmit = async () => {
 
-    const token = await recaptchaRef.current.executeAsync();
-    recaptchaRef.current.reset();
+    // const token = await recaptchaRef.current.executeAsync();
+    // recaptchaRef.current.reset();
+    // console.log("captcha token => ", token)
 
-    if (!isEmail()) {
-      setIsEmailAllowed(false)
-      setTimeout(() => setIsEmailAllowed(true), 5000)
-    }
-    if (!isName()) {
-      setIsNameAllowed(false)
-      setTimeout(() => setIsNameAllowed(true), 5000)
-    }
-    if (isEmail() && isName() && message && token) {
-      emailjs.send(
-        'service_f2pkwg4',
-        'template_t19rj59',
-        { name: name, company: company, phone: phone, email: email, message: message },
-        'user_ZnKZg2istVrG6SVgwBLan'
-      )
-        .then((result) => {
-          // console.log(result.text);
-          popup('Message envoyé ! Je vous recontacterai dès que possible.', 'success')
-          setName("");
-          setCompany("");
-          setPhone("");
-          setEmail("");
-          setMessage("");
-        })
-        .catch((error) => {
-          // console.log(error.text)
-          popup("Une erreur s'est produite, veuillez réessayer", 'issue')
-        })
+    // const response = await fetch(
+    //   `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`,
+    //   {
+    //     method: "POST"
+    //   }
+    //   )
+    // const data = await response.json();
 
-    } else {
-      popup('Merci de remplir correctement les champs requis *', 'error')
-    }
+    // console.log("recaptcha data => ", data)
 
+    // if(!recaptchaToken) {
+    //   popup("Veuillez remplir le captcha", 'issue')
+    // } else {
+        if (!isEmail()) {
+        setIsEmailAllowed(false)
+        setTimeout(() => setIsEmailAllowed(true), 5000)
+      }
+      if (!isName()) {
+        setIsNameAllowed(false)
+        setTimeout(() => setIsNameAllowed(true), 5000)
+      }
+      if (isEmail() && isName() && message) {
+        emailjs.send(
+          'gmail',
+          'template_t19rj59',
+          { name: name, company: company, phone: phone, email: email, message: message },
+          'user_ZnKZg2istVrG6SVgwBLan'
+        )
+          .then(res => {
+            // console.log(res.text);
+            popup('Message envoyé ! Je vous recontacterai dès que possible.', 'success')
+            setName("");
+            setCompany("");
+            setPhone("");
+            setEmail("");
+            setMessage("");
+            setRecaptchaToken("");
+          })
+          .catch(err => {
+            console.log(err.text)
+            popup("Une erreur s'est produite, veuillez réessayer", 'issue')
+          })
+
+      } else {
+        popup('Merci de remplir correctement les champs requis *', 'error')
+      }
+    // }
   };
 
 
@@ -158,14 +173,7 @@ const Form = () => {
           value="Envoyer"
           onClick={handleSubmit}
         />
-      </S.Form>
-      This site is protected by reCAPTCHA and the Google <Link to={{ pathname: "https://policies.google.com/privacy" }} target="_blank">Privacy Policy</Link> and <Link to={{ pathname: "https://policies.google.com/terms" }} target="_blank">Terms of Service</Link> apply.
-      <ReCAPTCHA
-        ref={recaptchaRef}
-        size="invisible"
-        sitekey={siteKey}
-        badge="inline"
-      />
+      </S.Form>      
     </>
   );
 };

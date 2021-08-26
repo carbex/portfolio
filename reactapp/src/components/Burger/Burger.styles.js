@@ -9,7 +9,7 @@ const colors = {
 
 // Styled components
 export const StyledBurger = styled.div`
-padding: 0;
+    padding: 0;
     cursor: pointer;
     width: 2rem;
     height: 2rem;
