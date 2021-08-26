@@ -14,15 +14,15 @@ function Informations() {
 
     const [copyMessage, setCopyMessage] = useState({ phone: '', email: '' })
 
-    const copyToClipboard = (arg, type) => {
-        navigator.clipboard.writeText(arg)
-        if (type === 'phone') {
-            setCopyMessage({ ...copyMessage, phone: 'Copié' });
-        } else if (type === 'email') {
-            setCopyMessage({ ...copyMessage, email: 'Copié' });
-        }
-        setTimeout(() => setCopyMessage({ ...copyMessage, phone: '', email: '' }), 1000)
-    };
+    // const copyToClipboard = (arg, type) => {
+    //     navigator.clipboard.writeText(arg)
+    //     if (type === 'phone') {
+    //         setCopyMessage({ ...copyMessage, phone: 'Copié' });
+    //     } else if (type === 'email') {
+    //         setCopyMessage({ ...copyMessage, email: 'Copié' });
+    //     }
+    //     setTimeout(() => setCopyMessage({ ...copyMessage, phone: '', email: '' }), 1000)
+    // };
 
     return (
         <S.Container>
