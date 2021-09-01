@@ -2,30 +2,31 @@ import React, { useState } from 'react'
 import * as S from './Login.styles'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
+import {useForm} from 'react-hook-form'
 
 function Login(props) {
 
-
-    const [login, setLogin] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
-    const [isConnect, setIsConnect] = useState(false)
-
-    var handleSubmitSignin = async () => {
+    const {register, handleSubmit, formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful}, setError, clearErrors } = useForm({
+        mode: 'onTouched'
+    })
+  
+    const onSubmit = async data => {
         const rawResponse = await fetch('/users/sign-in', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `login=${login}&password=${password}`
+            body: `login=${data.login}&password=${data.password}`
         })
         const response = await rawResponse.json();
 
         if (response.result === true) {
             props.addUser(response.user)
-            setIsConnect(true)
         } else {
-            setError(<span style={{color: 'lightcoral'}}>{response.error}</span>)
+            setError('bdd', {
+                type: 'manual',
+                message: `${response.error}`
+            })
             const timer = setTimeout(() => {
-                setError('')
+                clearErrors('bdd')
             }, 5000)
             return () => {
                 clearTimeout(timer)
@@ -33,46 +34,31 @@ function Login(props) {
         }
     }
 
-    // var handleSubmitSignup = async () => {
-    //     const data = await fetch('/users/sign-up', {
-    //       method: 'POST',
-    //       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    //       body: `login=${login}&password=${password}`
-    //     })
-    //     const body = await data.json()
-    //     console.log('body = ',body)
-    //     if (body.result === true) {
-    //       props.addToken(body.user.token)
-    //       props.addUserId(body.user._id)
-    //       setSignUp(true)
-    //     } else {
-    //       setError(body.error)
-    //       setOpen(true);
-    //     }
-    // }
-
-    // Redirections
-  if (isConnect) {
-    return <Redirect to="/dashboard" />;
-  }
+    if(isSubmitSuccessful) {
+        return <Redirect to="/dashboard" />;
+    }
 
     return (
         <S.Container>
-            <S.Form>
+            <S.Form onSubmit={handleSubmit(onSubmit)}>
                 <S.Input
                     type="text"
-                    name='login'
                     placeholder='Identifiant*'
-                    onChange={(e) => setLogin(e.target.value)}
+                    {...register('login', { required: 'Vous devez entrer un identifiant' })}
                 />
+                <div style={{height: '20px'}}>{errors.login && <span style={{color: 'lightcoral'}}>{errors.login.message}</span>}</div>
                 <S.Input
                     type="password"
-                    name="password"
                     placeholder='Mot de passe*'
-                    onChange={(e) => setPassword(e.target.value)}
+                    {...register('password', { 
+                        required: 'Vous devez entrer un mot de passe', 
+                        minLength: {value:8, message: 'Vous devez entrer au moins 8 caractères'},  
+                        pattern: {value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, message: 'Vous devez entrer au minimum une majuscule, une minuscule, un chiffre et un caractère spécial'}
+                    })}
                 />
-                <div style={{height: '20px', display: 'flex', justifyContent: 'center'}}>{error}</div>
-                <S.Button onClick={handleSubmitSignin}>Se connecter</S.Button>
+                <div style={{height: '20px'}}>{errors.password && <span style={{color: 'lightcoral'}}>{errors.password.message}</span>}</div>
+                <S.Button disabled={isSubmitting}>Se connecter</S.Button>
+                <div style={{height: '20px'}}>{errors.bdd && <span style={{color: 'lightcoral'}}>{errors.bdd.message}</span>}</div>
             </S.Form>
         </S.Container>
     )

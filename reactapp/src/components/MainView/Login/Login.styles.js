@@ -16,7 +16,7 @@ flex-direction: column;
 text-align: left;
 `
 
-export const Form = styled.div`
+export const Form = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -45,7 +45,7 @@ export const Input = styled.input`
 `
 export const Button = styled.button`
     font-size: 1.3rem;
-    margin-top: 10px;
+    margin-top: 40px;
     color: white;
     background-color: rgba(131, 234, 241, 0.6);
     border: 1px solid white;
