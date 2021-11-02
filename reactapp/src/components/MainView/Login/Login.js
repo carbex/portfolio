@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as S from './Login.styles'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
@@ -6,9 +6,13 @@ import {useForm} from 'react-hook-form'
 
 function Login(props) {
 
-    const {register, handleSubmit, formState: { errors, isSubmitting, isSubmitted, isSubmitSuccessful}, setError, clearErrors } = useForm({
+    const {register, handleSubmit, formState: { errors, isSubmitting, isSubmitSuccessful}, setError, clearErrors, setFocus } = useForm({
         mode: 'onTouched'
     })
+
+    useEffect(() => {
+        setFocus('login')
+    }, [setFocus])
   
     const onSubmit = async data => {
         const rawResponse = await fetch('/users/sign-in', {
@@ -53,7 +57,7 @@ function Login(props) {
                     {...register('password', { 
                         required: 'Vous devez entrer un mot de passe', 
                         minLength: {value:8, message: 'Vous devez entrer au moins 8 caractères'},  
-                        pattern: {value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, message: 'Vous devez entrer au minimum une majuscule, une minuscule, un chiffre et un caractère spécial'}
+                        pattern: {value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, message: 'Le mot de passe doit contenir au minimum une majuscule, une minuscule, un chiffre et un caractère spécial'}
                     })}
                 />
                 <div style={{height: '20px'}}>{errors.password && <span style={{color: 'lightcoral'}}>{errors.password.message}</span>}</div>
