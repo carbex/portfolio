@@ -51,5 +51,8 @@
   ],
   "devDependencies": {
     "@types/leaflet": "^1.7.4"
+  },
+  "engines": {
+    "node": "16.13.0"
   }
 }
