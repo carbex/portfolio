@@ -8,7 +8,7 @@ function Informations() {
 
     const info = {
         phone: '06 03 00 53 25',
-        email: 'alexduchemin@free.fr',
+        email: 'alex.duchemin@outlook.com',
         address: 'Boulogne-Billancourt'
     }
 

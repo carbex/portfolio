@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import emailjs from 'emailjs-com';
 import * as S from './Form.styles';
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 // import { Link } from 'react-router-dom'
 
 const Form = () => {
