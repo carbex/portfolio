@@ -18,13 +18,13 @@ export const Portfolio = styled.div`
     grid-column-gap: 20px;
     grid-auto-flow: row dense;
 
-    @media screen and (min-width: 992px) {
+    @media screen and (min-width: 1025px) {
         grid-template-columns: repeat(3, 1fr);
     }
-    @media screen and (min-width: 576px) and (max-width: 992px) {
+    @media screen and (min-width: 801px) and (max-width: 1024px) {
         grid-template-columns: repeat(2, 1fr);
     }
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 800px) {
         grid-template-columns: repeat(1, 1fr);
     }
 `

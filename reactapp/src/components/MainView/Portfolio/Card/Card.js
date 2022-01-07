@@ -36,7 +36,8 @@ function Card(props) {
       <S.Container onClick={handleClick} ref={cardRef}>
         <S.ImageContainer>
           {/* <S.Date visible={visible}>{convertDate(creationDate)}</S.Date> */}
-          <S.Image src={imageUrl ? imageUrl : "http://via.placeholder.com/700x525"} alt={title} />         
+          <S.Image src={imageUrl ? imageUrl : "http://via.placeholder.com/700x525"} alt={title} /> 
+          {/* <div style={{backgroundColor: 'pink', height: '300px', width: '100%'}}></div>         */}
         </S.ImageContainer>
         <S.TitleContainer visible={visible}>
           <S.Title visible={visible}>{title}</S.Title>         
