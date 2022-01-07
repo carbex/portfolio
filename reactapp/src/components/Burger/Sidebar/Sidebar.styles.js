@@ -23,7 +23,7 @@ export const SidebarContainer = styled.div`
     background-repeat: no-repeat;
     background-position: center center;
     color: #fff;
-    position: ${p => p.isSidebarOpen ? 'sticky' : 'fixed' };
+    position: ${p => p.isSidebarOpen ? 'fixed' : 'fixed' };
     top: 0;
     transition: .5s ease-in-out all;
     z-index: 15;

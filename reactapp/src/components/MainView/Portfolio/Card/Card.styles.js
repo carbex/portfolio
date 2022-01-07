@@ -13,7 +13,7 @@ export const Image = styled.img`
   margin-bottom: 10px;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
   border-radius: 4px;
   border: 1px solid white;
   opacity: 1;

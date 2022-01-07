@@ -37,7 +37,7 @@ function Card(props) {
         <S.ImageContainer>
           {/* <S.Date visible={visible}>{convertDate(creationDate)}</S.Date> */}
           <S.Image src={imageUrl ? imageUrl : "http://via.placeholder.com/700x525"} alt={title} /> 
-          {/* <div style={{backgroundColor: 'pink', height: '300px', width: '100%'}}></div>         */}
+          {/* <div style={{backgroundColor: 'pink', height: '200px', width: '100%'}}></div>         */}
         </S.ImageContainer>
         <S.TitleContainer visible={visible}>
           <S.Title visible={visible}>{title}</S.Title>         
