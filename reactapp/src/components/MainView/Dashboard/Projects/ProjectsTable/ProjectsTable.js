@@ -36,7 +36,7 @@ function ProjectsTable(props) {
             return (
                 <tr key={project._id}>
                     <th onClick={() => isSmallerThan350 && handleProjectDropdownClick(index)} >
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <div>
                                 <div style={{ fontSize: '14px', marginRight: '10px' }}>
                                     {capitalize(project.title)}

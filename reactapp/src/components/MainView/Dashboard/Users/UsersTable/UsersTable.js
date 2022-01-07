@@ -34,7 +34,7 @@ function UsersTable(props) {
             return (
                 <tr key={user._id}>
                     <th onClick={() => isSmallerThan350 && handleUserDropdownClick(index)}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', aligItems: 'center' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <div>
                                 <div style={{ fontSize: '14px', marginRight: '10px' }}>
                                     {capitalize(user.login)}
