@@ -2,6 +2,7 @@ import React from 'react'
 import * as S from './About.styles'
 // import * as AiIcons from "react-icons/ai"
 import { Link } from 'react-router-dom'
+import { dynamicSort } from '../../Functions/Functions'
 
 const profilImage = 'https://res.cloudinary.com/dynf7eh8t/image/upload/v1628118151/portfolio/alex_drmknu.jpg'
 
@@ -9,7 +10,7 @@ function About() {
 
     return (
         <>
-            <div className='container' style={{ maxWidth: '1024px' }}>
+            <S.Container>
                 <div className="row">
                     <S.PageTitle>PROFIL</S.PageTitle>
                     <div className='col col-12 col-md-4 mb-4'>
@@ -50,7 +51,7 @@ function About() {
                         </Link>
                     </div>
                 </div>
-            </div>
+            </S.Container>
         </>
     )
 }
