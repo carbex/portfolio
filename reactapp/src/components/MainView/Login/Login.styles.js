@@ -6,8 +6,8 @@ const mainColor = 'rgba(131, 234, 241, 1)';
 // Styled-components
 export const Container = styled.div`
 max-width: 1024px;
-margin: 0 10px;
-padding: 3rem 0;
+padding: 3rem 10px;
+margin: 0 auto;
 height: 100%;
 display: flex; 
 justify-content: center;
