@@ -13,6 +13,7 @@ function Users() {
     const [message, setMessage] = useState('')
     const [isIdAscendant, setIsIdAscendant] = useState(false)
     const [isEmailAscendant, setIsEmailAscendant] = useState(false)
+    const [isSmallerThan350, setIsSmallerThan350] = useState(false)
 
     // LOAD USERS
     useEffect(() => {
@@ -45,9 +46,12 @@ function Users() {
         const updateWindowWidth = () => {
             const breakPoint = 650
             if (window.innerWidth > breakPoint) {
+                setIsSmallerThan350(false)
                 setUsers(users.map(user => {
                     return { ...user, visible: false }
                 }))
+            } else {
+                setIsSmallerThan350(true)
             }
         }
         window.addEventListener('resize', updateWindowWidth)
@@ -157,6 +161,7 @@ function Users() {
                 handleAddUserSubmit={handleAddUserSubmit}
             />          
             <UsersTable
+                isSmallerThan350={isSmallerThan350}
                 loading={loading}
                 isIdAscendant={isIdAscendant}
                 isEmailAscendant={isEmailAscendant}

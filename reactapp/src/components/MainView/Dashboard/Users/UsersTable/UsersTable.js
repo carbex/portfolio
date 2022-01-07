@@ -10,6 +10,7 @@ function UsersTable(props) {
 
     // Default props
     const {
+        isSmallerThan350,
         loading = true,
         isIdAscendant = false,
         isEmailAscendant = false,
@@ -32,7 +33,7 @@ function UsersTable(props) {
         } else {
             return (
                 <tr key={user._id}>
-                    <th>
+                    <th onClick={() => isSmallerThan350 && handleUserDropdownClick(index)}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', aligItems: 'center' }}>
                             <div>
                                 <div style={{ fontSize: '14px', marginRight: '10px' }}>
@@ -41,7 +42,8 @@ function UsersTable(props) {
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
                                     <S.LinkToModal
                                         color={'green'}
-                                        onClick={() => {
+                                        onClick={(event) => {
+                                            event.stopPropagation();
                                             setModal(
                                                 <UsersFormUpdate
                                                     user={user}
@@ -58,7 +60,8 @@ function UsersTable(props) {
                                             &nbsp;<S.Text>|</S.Text>&nbsp;
                                             <S.LinkToModal
                                                 color={'red'}
-                                                onClick={() => {
+                                                onClick={(event) => {
+                                                    event.stopPropagation();
                                                     setModal(
                                                         <UsersFormDelete
                                                             user={user}

@@ -35,8 +35,8 @@ function ProjectsTable(props) {
         } else {
             return (
                 <tr key={project._id}>
-                    <th>
-                        <div onClick={() => isSmallerThan350 && handleProjectDropdownClick(index)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <th onClick={() => isSmallerThan350 && handleProjectDropdownClick(index)} >
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <div>
                                 <div style={{ fontSize: '14px', marginRight: '10px' }}>
                                     {capitalize(project.title)}
@@ -45,7 +45,8 @@ function ProjectsTable(props) {
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
                                     <S.LinkToModal
                                         color={'green'}
-                                        onClick={() => {
+                                        onClick={(event) => {
+                                            event.stopPropagation();
                                             setModal(
                                                 <ProjectsFormUpdate
                                                     project={project}
@@ -62,7 +63,8 @@ function ProjectsTable(props) {
                                             &nbsp;<S.Text>|</S.Text>&nbsp;
                                             <S.LinkToModal
                                                 color={'red'}
-                                                onClick={() => {
+                                                onClick={(event) => {
+                                                    event.stopPropagation();
                                                     setModal(
                                                         <ProjectsFormDelete
                                                             project={project}
