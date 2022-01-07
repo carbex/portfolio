@@ -14,6 +14,7 @@ function Projects() {
     const [isTitleAscendant, setIsTitleAscendant] = useState(false)
     const [isCreationDateAscendant, setIsCreationDateAscendant] = useState(false)
     // const [isUpdateDateAscendant, setIsUpdateDateAscendant] = useState(false)
+    const [isSmallerThan350, setIsSmallerThan350] = useState(false)
 
     // LOAD PROJECTS
     useEffect(() => {
@@ -42,9 +43,12 @@ function Projects() {
         const updateWindowWidth = () => {
             const breakPoint = 650
             if (window.innerWidth > breakPoint) {
+                setIsSmallerThan350(false)
                 setProjects(projects.map(project => {
                     return { ...project, visible: false }
                 }))
+            } else {
+                setIsSmallerThan350(true)
             }
         }
         window.addEventListener('resize', updateWindowWidth)
@@ -192,6 +196,7 @@ function Projects() {
                 handleAddProjectSubmit={handleAddProjectSubmit}
             />
             <ProjectsTable
+                isSmallerThan350={isSmallerThan350}
                 loading={loading}
                 isTitleAscendant={isTitleAscendant}
                 isCreationDateAscendant={isCreationDateAscendant}

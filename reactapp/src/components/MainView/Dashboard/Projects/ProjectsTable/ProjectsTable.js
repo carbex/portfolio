@@ -10,6 +10,7 @@ function ProjectsTable(props) {
 
     // Default props
     const {
+        isSmallerThan350,
         loading = true,
         isTitleAscendant = false,
         isCreationDateAscendant = false,
@@ -35,7 +36,7 @@ function ProjectsTable(props) {
             return (
                 <tr key={project._id}>
                     <th>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', aligItems: 'center' }}>
+                        <div onClick={() => isSmallerThan350 && handleProjectDropdownClick(index)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <div>
                                 <div style={{ fontSize: '14px', marginRight: '10px' }}>
                                     {capitalize(project.title)}
@@ -78,7 +79,7 @@ function ProjectsTable(props) {
                                 </div>
                                 {/* } */}
                             </div>
-                            <S.ButtonToggle onClick={() => handleProjectDropdownClick(index)}><S.DropdownIcon visible={project.visible} /></S.ButtonToggle>
+                            <S.ButtonToggle  onClick={() => handleProjectDropdownClick(index)}><S.DropdownIcon visible={project.visible} /></S.ButtonToggle>
                         </div>
                         {/* TH FOOTER WHEN SCREEN < 650 */}
                         <S.UserFooter visible={project.visible}>

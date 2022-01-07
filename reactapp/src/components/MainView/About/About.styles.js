@@ -22,6 +22,9 @@ export const ImageContainer = styled.div`
     height: 100%;
     min-height: 400px;
     width: 100%;
+    object-fit: cover;
+    object-position: center;
+
 `
 export const Image = styled.img`
     width: 100%;
