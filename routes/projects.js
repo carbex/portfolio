@@ -49,13 +49,17 @@ router.post('/add', async (req, res, next) => {
       res.json({ result: false, error: "Utilisateur inconnu" });
     } else {
       var dir = './public/tmp/'
-      if (!fs.existsSync(dir)) {
-        fs.mkdir(dir)
+      try {
+        // first check if directory already exists
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+          }
+      } catch (err) {
+        console.log(err);
       }
+     
       var imgPath = dir + uniqid() + '.' + image.mimetype.split('/').pop();
       var resultCopy = await image.mv(imgPath);
-
-      console.log("resultCopy = ", resultCopy)
       
       if (!resultCopy) {
         var resultCloudinary = await cloudinary.uploader.upload(imgPath, {
