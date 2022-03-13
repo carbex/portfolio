@@ -48,15 +48,12 @@ router.post('/add', async (req, res, next) => {
     if (!user){
       res.json({ result: false, error: "Utilisateur inconnu" });
     } else {
-      var imgPath = './public/tmp/' + uniqid() + '.' + image.mimetype.split('/').pop();
-      var resultCopy = await image.mv(imgPath,function (err) {
-        if(err){
-            console.log(err);
-        }
-        else{
-            console.log("File moved");
-        }
-    });
+      var dir = './public/tmp/'
+      if (!fs.existsSync(dir)) {
+        fs.mkdir(dir)
+      }
+      var imgPath = dir + uniqid() + '.' + image.mimetype.split('/').pop();
+      var resultCopy = await image.mv(imgPath);
 
       console.log("resultCopy = ", resultCopy)
       
