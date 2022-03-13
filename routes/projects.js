@@ -48,12 +48,19 @@ router.post('/add', async (req, res, next) => {
     if (!user){
       res.json({ result: false, error: "Utilisateur inconnu" });
     } else {
-      var imgPath = './tmp/' + uniqid() + '.' + image.mimetype.split('/').pop();
-      var resultCopy = await image.mv(imgPath);
+      var imgPath = './public/tmp/' + uniqid() + '.' + image.mimetype.split('/').pop();
+      var resultCopy = await image.mv(imgPath,function (err) {
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log("File moved");
+        }
+    });
 
       console.log("resultCopy = ", resultCopy)
-// if (!resultCopy) {
-      if (resultCopy === undefined) {
+      
+      if (!resultCopy) {
         var resultCloudinary = await cloudinary.uploader.upload(imgPath, {
           folder: 'portfolio',
           use_filename: true
