@@ -5,6 +5,7 @@ var projectModel = require("../models/projects");
 var uniqid = require('uniqid');
 var fs = require('fs');
 
+
 const apiKey = process.env.CLOUDINARY_API_KEY;
 const apiSecret = process.env.CLOUDINARY_API_SECRET;
 
@@ -50,7 +51,9 @@ router.post('/add', async (req, res, next) => {
       var imgPath = './tmp/' + uniqid() + '.' + image.mimetype.split('/').pop();
       var resultCopy = await image.mv(imgPath);
 
-      if (!resultCopy) {
+      console.log("resultCopy = ", resultCopy)
+// if (!resultCopy) {
+      if (resultCopy === undefined) {
         var resultCloudinary = await cloudinary.uploader.upload(imgPath, {
           folder: 'portfolio',
           use_filename: true
