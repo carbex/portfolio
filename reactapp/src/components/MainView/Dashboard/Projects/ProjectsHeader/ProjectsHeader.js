@@ -12,8 +12,7 @@ function ProjectsHeader(props) {
         message = '',
         setModal,
         unSetModal,
-        handleAddProjectSubmit,
-        role = 2
+        handleAddProjectSubmit
     } = props
     
     return (

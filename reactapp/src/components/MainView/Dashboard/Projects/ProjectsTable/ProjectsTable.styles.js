@@ -6,6 +6,10 @@ const mainColor = 'rgba(44, 219, 232, 1)'
 // Styled-components
 export const Title = styled.h2``
 
+export const Tr = styled.tr`
+    background-color: 'black';
+`
+
 export const LinkToModal = styled.div`
     color: ${p => p.color && p.color};
     opacity: 0.8;

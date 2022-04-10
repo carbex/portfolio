@@ -8,8 +8,7 @@ function ProjectFormAdd(props) {
     const {
         onSubmit,
         unSetModal,
-        token,
-        role = 2
+        token
     } = props
 
     // States
@@ -47,7 +46,7 @@ function ProjectFormAdd(props) {
             <label htmlFor='githubUrl'>Lien github</label>
             <S.Input type="text" name='githubUrl' placeholder='Lien github' onChange={e => setGithubUrl(e.target.value)} />
             <div style={{display: 'flex', justifyContent: 'start'}}>
-                <S.ButtonSecondary onClick={() => unSetModal()}>Abandonner</S.ButtonSecondary>
+                <S.ButtonSecondary onClick={() => unSetModal()}>Abandonner</S.ButtonSecondary>&nbsp;
                 <S.ButtonPrimary onClick={() => onSubmit(token, image, title, description, resources, siteUrl, githubUrl)}>Ajouter</S.ButtonPrimary> 
             </div>            
         </S.Container>

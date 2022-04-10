@@ -37,6 +37,7 @@ router.post('/add', async (req, res, next) => {
   let siteUrl = req.body.siteUrl;
   let githubUrl = req.body.githubUrl;
   let creationDate = req.body.creationDate;
+  let active = req.body.active;
 
   if (!title || !description || resources[0].length === 0 || !creationDate || !image) {
     res.json({ result: false, error: 'Tous les champs avec une * sont obligatoires' });
@@ -71,6 +72,7 @@ router.post('/add', async (req, res, next) => {
         } else {
           const newProject = new projectModel({
             imageUrl: resultCloudinary.url,
+            active,
             title,
             description,
             resources,
@@ -116,8 +118,9 @@ router.post('/update', async (req, res, next) => {
   let siteUrl = req.body.siteUrl;
   let githubUrl = req.body.githubUrl;
   let updateDate = req.body.updateDate;
+  let active = req.body.active;
 
-  console.log('resources =>', resources)
+  // console.log('resources =>', resources)
 
   if (!title || !description || resources[0].length === 0) {
     res.json({ result: false, error: 'Tous les champs avec une * sont obligatoires' })
@@ -126,7 +129,17 @@ router.post('/update', async (req, res, next) => {
       if (image.size > 10000000) {
         res.json({ result: false, error: 'Le fichier est trop volumineux' })
       } else {
-        var imgPath = './tmp/' + uniqid() + '.' + image.mimetype.split('/').pop();
+
+        var dir = './public/tmp/'
+        try {
+          // first check if directory already exists
+          if (!fs.existsSync(dir)) {
+              fs.mkdirSync(dir, { recursive: true });
+            }
+        } catch (err) {
+          console.log(err);
+        }
+        var imgPath = dir + uniqid() + '.' + image.mimetype.split('/').pop();
         var resultCopy = await image.mv(imgPath);
 
         if (!resultCopy) {
@@ -148,7 +161,8 @@ router.post('/update', async (req, res, next) => {
                 resources,
                 siteUrl,
                 githubUrl,
-                updateDate
+                updateDate,
+                active
               }
             );
             if (!updatedProject) {
@@ -176,7 +190,8 @@ router.post('/update', async (req, res, next) => {
           resources,
           siteUrl,
           githubUrl,
-          updateDate
+          updateDate,
+          active
         }
       )
       if (!updatedProject) {

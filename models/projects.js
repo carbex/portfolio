@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const projectSchema = mongoose.Schema({
     visible: Boolean,
+    active: Boolean,
     imageUrl: String,
     title: String,
     description: String,

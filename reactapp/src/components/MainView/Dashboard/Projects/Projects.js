@@ -16,6 +16,8 @@ function Projects() {
     // const [isUpdateDateAscendant, setIsUpdateDateAscendant] = useState(false)
     const [isSmallerThan350, setIsSmallerThan350] = useState(false)
 
+  
+
     // LOAD PROJECTS
     useEffect(() => {
         loadProjects()
@@ -69,6 +71,7 @@ function Projects() {
         data.append('siteUrl', siteUrl);
         data.append('githubUrl', githubUrl);
         data.append('creationDate', date);
+        data.append('active', true);
 
         const rawResponse = await fetch('/projects/add', {
             method: 'POST',
@@ -89,7 +92,7 @@ function Projects() {
     }
 
     // UPDATE PROJECT
-    const handleUpdateProjectSubmit = async (id, imageUrl, image, title, description, resources, siteUrl, githubUrl) => {
+    const handleUpdateProjectSubmit = async (id, imageUrl, image, title, description, resources, siteUrl, githubUrl, active) => {
         var updateDate = new Date();
         updateDate.setHours(0, 0, 0, 0);
         let publicId = imageUrl.split('/').pop().split('.').shift();
@@ -103,6 +106,7 @@ function Projects() {
         data.append('resources', resources);
         data.append('siteUrl', siteUrl);
         data.append('githubUrl', githubUrl);
+        data.append('active', active);
 
         const rawResponse = await fetch('/projects/update', {
             method: 'POST',
@@ -210,6 +214,7 @@ function Projects() {
                 handleCreationDateDropdownClick={handleCreationDateDropdownClick}
                 // handleUpdateDateDropdownClick={handleUpdateDateDropdownClick}
                 handleProjectDropdownClick={handleProjectDropdownClick}
+                //handleCheck={handleCheck}
             />
         </>
     )

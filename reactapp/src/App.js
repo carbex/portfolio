@@ -1,17 +1,16 @@
-import React from 'react';
-import * as S from './App.styles'
-import MainView from './components/MainView/MainView'
-import Burger from './components/Burger/Burger'
-import SocialNetworks from './components/SocialNetworks/SocialNetworks'
+import React from "react";
+import * as S from "./App.styles";
+import MainView from "./components/MainView/MainView";
+import Layout from "./components/Layout/Layout";
 
 const App = () => {
   return (
     <S.App>
-      <Burger />
-      <MainView />
-      <SocialNetworks />
+      <Layout>
+        <MainView />
+      </Layout>
     </S.App>
   );
-}
+};
 
-export default App
+export default App;

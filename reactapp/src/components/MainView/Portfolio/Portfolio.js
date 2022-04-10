@@ -13,7 +13,8 @@ function Portfolio() {
     const loadProjects = async () => {
       let rawResponse = await fetch('/projects/get')
       let response = await rawResponse.json()
-      response.result ? setProjects(response.projects.map(project => {
+      let filteredProjects = response.projects.filter(project => project.active === true);
+      response.result ? setProjects(filteredProjects.map(project => {
         return { ...project, visible: false }
     }).sort(dynamicSort('creationDate')).reverse()) : alert(`${response.error}`)
     }

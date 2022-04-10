@@ -1,8 +1,6 @@
 import React from 'react'
 import * as S from './About.styles'
-// import * as AiIcons from "react-icons/ai"
 import { Link } from 'react-router-dom'
-import { dynamicSort } from '../../Functions/Functions'
 
 const profilImage = 'https://res.cloudinary.com/dynf7eh8t/image/upload/v1628118151/portfolio/alex_drmknu.jpg'
 

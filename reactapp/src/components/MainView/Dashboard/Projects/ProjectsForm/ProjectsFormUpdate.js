@@ -11,14 +11,15 @@ function ProjectFormUpdate(props) {
     } = props
 
     // States
-    const [id, setId] = useState()
+    const [id, setId] = useState("")
     const [image, setImage] = useState()
-    const [imageUrl, setImageUrl] = useState()
-    const [title, setTitle] = useState()
-    const [description, setDescription] = useState()
-    const [resources, setResources] = useState()
-    const [siteUrl, setSiteUrl] = useState()
-    const [githubUrl, setGithubUrl] = useState()
+    const [imageUrl, setImageUrl] = useState("")
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("")
+    const [resources, setResources] = useState("")
+    const [siteUrl, setSiteUrl] = useState("")
+    const [githubUrl, setGithubUrl] = useState("")
+    const [active, setActive] = useState(true)
 
     useEffect(() => {
         setId(project._id)
@@ -28,6 +29,7 @@ function ProjectFormUpdate(props) {
         setResources(project.resources.join('|'))
         setSiteUrl(project.siteUrl)
         setGithubUrl(project.githubUrl)
+        setActive(project.active)
     },
     [
         project._id,
@@ -36,7 +38,8 @@ function ProjectFormUpdate(props) {
         project.description,
         project.resources,
         project.siteUrl,
-        project.githubUrl
+        project.githubUrl,
+        project.active
     ])
 
     const onImageChange = (event) => {
@@ -64,9 +67,14 @@ function ProjectFormUpdate(props) {
             <S.Input type="text" defaultValue={project.siteUrl} placeholder='Lien du site' onChange={e => setSiteUrl(e.target.value)} />
             <label>Liens github</label>
             <S.Input type="text" defaultValue={project.githubUrl} placeholder='Lien github' onChange={e => setGithubUrl(e.target.value)} />
-            <div style={{ display: 'flex', justifyContent: 'start' }}>
-                <S.ButtonSecondary onClick={() => unSetModal()}>Abandonner</S.ButtonSecondary>
-                <S.ButtonPrimary onClick={() => onSubmit(id, project.imageUrl, image, title, description, resources, siteUrl, githubUrl)}>Modifier</S.ButtonPrimary>
+            <div style={{display: "flex", justifyContent: "left", alignItems: 'center'}}>
+                <span style={{paddingRight: 20}}>Actif</span>
+                <input type="checkbox" checked={active} onChange={() => setActive(!active)} />
+            </div>
+            
+            <div style={{ display: 'flex', justifyContent: 'start'}}>
+                <S.ButtonSecondary onClick={() => unSetModal()}>Abandonner</S.ButtonSecondary>&nbsp;
+                <S.ButtonPrimary onClick={() => onSubmit(id, imageUrl, image, title, description, resources, siteUrl, githubUrl, active)}>Modifier</S.ButtonPrimary>
             </div>
         </S.Container>
     )

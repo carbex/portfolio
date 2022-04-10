@@ -19,7 +19,7 @@ function ProjectFormDelete(props) {
             <h3>Suppression de projet</h3>
             <p>Êtes vous sûr de vouloir supprimer {project.title}?</p>
             <div style={{display: 'flex', justifyContent: 'start'}}>
-                <S.ButtonSecondary onClick={() => unSetModal()}>Abandonner</S.ButtonSecondary>
+                <S.ButtonSecondary onClick={() => unSetModal()}>Abandonner</S.ButtonSecondary>&nbsp;
                 <S.ButtonDanger onClick={() => onSubmit(id, imageUrl)}>Supprimer</S.ButtonDanger>
             </div>
         </div>

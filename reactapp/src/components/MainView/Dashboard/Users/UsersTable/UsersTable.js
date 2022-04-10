@@ -123,7 +123,8 @@ function UsersTable(props) {
 
     return (
         <>
-            <table className='table table-light table-hover'>
+        <div  style={{ borderRadius: 4, overflow: 'hidden', backgroundColor: 'white', marginBottom: 20}}>
+            <table className='table table-light table-hover' style={{marginBottom: 0}}>
                 <thead style={{ fontSize: '14px' }}>
                     <tr>
                         <S.ThLogin>
@@ -147,6 +148,7 @@ function UsersTable(props) {
                     {usersList}
                 </tbody>
             </table>
+            </div>
         </>
     )
 }

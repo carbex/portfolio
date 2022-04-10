@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import emailjs from 'emailjs-com';
 import * as S from './Form.styles';
 // import ReCAPTCHA from "react-google-recaptcha";
@@ -20,7 +20,7 @@ const Form = () => {
   const [isNameAllowed, setIsNameAllowed] = useState(true)
   const [popupMessage, setPopupMessage] = useState({ message: '...', color: '#fff', opacity: 0 })
   const [isFail, setIsFail] = useState(false)
-  const [recaptchaToken, setRecaptchaToken] = useState("")
+  // const [recaptchaToken, setRecaptchaToken] = useState("")
 
 
 
@@ -90,7 +90,7 @@ const Form = () => {
             setPhone("");
             setEmail("");
             setMessage("");
-            setRecaptchaToken("");
+            // setRecaptchaToken("");
           })
           .catch(err => {
             console.log(err.text)

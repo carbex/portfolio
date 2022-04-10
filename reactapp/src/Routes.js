@@ -9,6 +9,7 @@ import Destinations from './components/MainView/Destinations/Destinations'
 import Country from './components/MainView/Destinations/Country/Country'
 import Login from './components/MainView/Login/Login'
 import Dashboard from './components/MainView/Dashboard/Dashboard'
+import NoPage from './components/MainView/NoPage/NoPage'
 
 
 const Routes = () => {
@@ -26,6 +27,7 @@ const Routes = () => {
                 window.location.href = 'https://www.linkedin.com/in/alex-duchemin/'; 
                 return null;
             }}/> */}
+            <Route path="*" component={NoPage}></Route>
         </Switch>       
     )
 }

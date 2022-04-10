@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import * as S from './Login.styles'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
