@@ -5,9 +5,9 @@ import ProjectsFormUpdate from "../ProjectsForm/ProjectsFormUpdate";
 import ProjectsFormDelete from "../ProjectsForm/ProjectsFormDelete";
 import ProjectsCheckbox from "../ProjectsForm/ProjectsCheckbox";
 
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 
-function ProjectsTable(props) {
+export function ProjectsTable(props) {
   // Default props
   const {
     isSmallerThan350,
@@ -24,9 +24,14 @@ function ProjectsTable(props) {
     handleCreationDateDropdownClick,
     // handleUpdateDateDropdownClick,
     handleProjectDropdownClick,
-    token,
-    role = 2,
   } = props;
+
+  const token = useSelector((state) => state.user.token);
+  const role = useSelector((state) => state.user.role);
+
+  if (!token) {
+    return null;
+  }
 
   const projectsList = projects.map((project, index) => {
     if (token !== project.userId.token && role === 2) {
@@ -36,12 +41,12 @@ function ProjectsTable(props) {
         <tr key={project._id}>
           <th
             onClick={(event) => {
-                if (event.target.type && event.target.type === 'checkbox') {
-                    // The checkbox was clicked, stopping...
-                    console.log(event.target.type)
-                    return;
-                }
-                isSmallerThan350 && handleProjectDropdownClick(index)
+              if (event.target.type && event.target.type === "checkbox") {
+                // The checkbox was clicked, stopping...
+                console.log(event.target.type);
+                return;
+              }
+              isSmallerThan350 && handleProjectDropdownClick(index);
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -65,7 +70,7 @@ function ProjectsTable(props) {
                     }}
                   >
                     Modifier
-                  </S.LinkToModal>                  
+                  </S.LinkToModal>
                   {/* {(role === 2 || (role === 1 && token === user.token)) || */}
                   <>
                     &nbsp;<S.Text>|</S.Text>&nbsp;
@@ -89,9 +94,11 @@ function ProjectsTable(props) {
                 </div>
                 {/* } */}
               </div>
-              <S.ButtonToggle onClick={() => {
-                  handleProjectDropdownClick(index)
-                  }}>
+              <S.ButtonToggle
+                onClick={() => {
+                  handleProjectDropdownClick(index);
+                }}
+              >
                 <S.DropdownIcon visible={project.visible} />
               </S.ButtonToggle>
             </div>
@@ -148,7 +155,7 @@ function ProjectsTable(props) {
           <S.ThDisplayToggle>
             <ProjectsCheckbox
               project={project}
-                onSubmit={handleUpdateProjectSubmit}
+              onSubmit={handleUpdateProjectSubmit}
             />
           </S.ThDisplayToggle>
         </tr>
@@ -230,12 +237,3 @@ function ProjectsTable(props) {
     </>
   );
 }
-
-function mapStateToProps(state) {
-  return {
-    token: state.user.token,
-    role: state.user.role,
-  };
-}
-
-export default connect(mapStateToProps, null)(ProjectsTable);

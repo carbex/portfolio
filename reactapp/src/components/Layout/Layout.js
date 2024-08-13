@@ -1,8 +1,8 @@
 import React from "react";
-import Burger from "../Burger/Burger";
-import SocialNetworks from "../SocialNetworks/SocialNetworks";
+import { Burger } from "../Burger/Burger";
+import { SocialNetworks } from "../SocialNetworks";
 
-const Layout = ({ children }) => {
+export function Layout({ children }) {
   return (
     <>
       <Burger />
@@ -10,6 +10,4 @@ const Layout = ({ children }) => {
       <SocialNetworks />
     </>
   );
-};
-
-export default Layout;
+}

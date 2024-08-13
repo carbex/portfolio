@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@emotion/core": "^11.0.0",
+    "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -11,6 +13,7 @@
     "@testing-library/user-event": "^12.8.3",
     "dotenv": "^10.0.0",
     "emailjs-com": "^3.2.0",
+    "emotion": "^11.0.0",
     "env-cmd": "^10.1.0",
     "framer-motion": "^4.1.17",
     "google-map-react": "^2.1.10",
@@ -46,6 +49,9 @@
     "not op_mini all"
   ],
   "engines": {
-    "node": "16.13.0"
+    "node": "16.15.1"
+  },
+  "devDependencies": {
+    "sass": "^1.70.0"
   }
 }

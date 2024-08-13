@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./App.styles";
-import MainView from "./components/MainView/MainView";
-import Layout from "./components/Layout/Layout";
+import { MainView } from "./components/MainView/MainView";
+import { Layout } from "./components/Layout";
 
 const App = () => {
   return (

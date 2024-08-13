@@ -1,64 +1,61 @@
-import React, { useState, useEffect } from 'react'
-import Sidebar from './Sidebar/Sidebar'
-import * as S from './Burger.styles'
-import * as IoIcons from "react-icons/io"
+import React, { useState, useEffect, useCallback } from "react";
+import { Sidebar } from "./Sidebar/Sidebar";
+import * as S from "./Burger.styles";
+import * as IoIcons from "react-icons/io";
 
-function Burger() {
+export function Burger() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarLarge, setIsSidebarLarge] = useState(true);
+  const [userChoice, setUserChoice] = useState({
+    isSidebarLarge: null,
+    isSidebarOpen: null,
+  });
 
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-    const [isSidebarLarge, setIsSidebarLarge] = useState(true)
-    const [userChoice, setUserChoice] = useState({isSidebarLarge: null, isSidebarOpen: null})
+  // Update of sidebar states
 
-    // Update of sidebar states
+  const updateWindowWidth = useCallback(() => {
+    const firstBreakPoint = 992;
+    const secondBreakPoint = 576;
+    if (window.innerWidth < firstBreakPoint && isSidebarLarge)
+      setIsSidebarLarge(false);
+    else if (window.innerWidth > firstBreakPoint && userChoice.isSidebarLarge)
+      setIsSidebarLarge(true);
+    else if (window.innerWidth < secondBreakPoint) setIsSidebarOpen(false);
+    else if (window.innerWidth > secondBreakPoint && userChoice.isSidebarOpen)
+      setIsSidebarOpen(true);
+  }, [isSidebarLarge, userChoice.isSidebarLarge, userChoice.isSidebarOpen]);
 
-    useEffect(() => {
-        const updateWindowWidth = () => {        
-            const secondBreakPoint = 576
-            if (window.innerWidth < secondBreakPoint) setIsSidebarOpen(false)
-            else if (window.innerWidth > secondBreakPoint && userChoice.isSidebarOpen) setIsSidebarOpen(true)
-        }
-        window.addEventListener('resize', updateWindowWidth)
-        return () => window.removeEventListener('resize', updateWindowWidth)
-    }, [isSidebarOpen, userChoice.isSidebarOpen])
+  useEffect(() => {
+    window.addEventListener("resize", updateWindowWidth);
+    return () => window.removeEventListener("resize", updateWindowWidth);
+  }, [updateWindowWidth]);
 
-    useEffect(() => {
-        const updateWindowWidth = () => {
-            const firstBreakPoint = 992
-            if (window.innerWidth < firstBreakPoint && isSidebarLarge) setIsSidebarLarge(false)
-            else if (window.innerWidth > firstBreakPoint && userChoice.isSidebarLarge) setIsSidebarLarge(true)
-        }
-        window.addEventListener('resize', updateWindowWidth)
-        return () => window.removeEventListener('resize', updateWindowWidth)
-    }, [isSidebarLarge, userChoice.isSidebarLarge])
+  const handleBurgerClick = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+    setUserChoice({ ...userChoice, isSidebarOpen: !isSidebarOpen });
+  };
 
-    const handleBurgerClick = () => {
-        setIsSidebarOpen(!isSidebarOpen)
-        setUserChoice({...userChoice, isSidebarOpen: !isSidebarOpen})
-    }
+  const handleTogglerClick = () => {
+    setIsSidebarLarge(!isSidebarLarge);
+    setUserChoice({ ...userChoice, isSidebarLarge: !isSidebarLarge });
+  };
 
-    const handleTogglerClick = () => {
-        setIsSidebarLarge(!isSidebarLarge)
-        setUserChoice({...userChoice, isSidebarLarge: !isSidebarLarge})
-    }
-
-    return (
-        <>
-            <S.StyledBurger onClick={() => handleBurgerClick()}>
-                <S.Bar isSidebarOpen={isSidebarOpen}></S.Bar>
-                <S.Bar isSidebarOpen={isSidebarOpen}></S.Bar>
-                <S.Bar isSidebarOpen={isSidebarOpen}></S.Bar>
-            </S.StyledBurger>
-            <S.TogglerContainer onClick={() => handleTogglerClick()} >
-                <S.TogglerIcon isSidebarLarge={isSidebarLarge} isSidebarOpen={isSidebarOpen}>
-                    <IoIcons.IoIosArrowDropleft />
-                </S.TogglerIcon>
-            </S.TogglerContainer>
-            <Sidebar
-                isSidebarOpen={isSidebarOpen}
-                isSidebarLarge={isSidebarLarge}
-            />
-        </>
-    )
+  return (
+    <>
+      <S.StyledBurger onClick={() => handleBurgerClick()}>
+        <S.Bar isSidebarOpen={isSidebarOpen}></S.Bar>
+        <S.Bar isSidebarOpen={isSidebarOpen}></S.Bar>
+        <S.Bar isSidebarOpen={isSidebarOpen}></S.Bar>
+      </S.StyledBurger>
+      <S.TogglerContainer onClick={() => handleTogglerClick()}>
+        <S.TogglerIcon
+          isSidebarLarge={isSidebarLarge}
+          isSidebarOpen={isSidebarOpen}
+        >
+          <IoIcons.IoIosArrowDropleft />
+        </S.TogglerIcon>
+      </S.TogglerContainer>
+      <Sidebar isSidebarOpen={isSidebarOpen} isSidebarLarge={isSidebarLarge} />
+    </>
+  );
 }
-
-export default Burger
